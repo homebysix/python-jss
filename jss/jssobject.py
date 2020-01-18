@@ -24,11 +24,11 @@ import copy
 import datetime as dt
 import gzip
 import os
+import sys
 from xml.etree import ElementTree
 
-from six import string_types
-
 from jss import tools
+from six import string_types
 
 from .exceptions import JSSError, MethodNotAllowedError, PostError, PutError
 from .pretty_element import PrettyElement
@@ -39,11 +39,13 @@ except ImportError:
     import _pickle as cPickle  # Python 3+
 
 
-
-
-
 DATE_FMT = "%Y/%m/%d-%H:%M:%S.%f"
 _MATCH = "match"
+
+# Map string types for Python 3 backwards compatibility.
+if sys.version_info.major == 3:
+    unicode = str
+    basestring = str
 
 
 class Identity(dict):
