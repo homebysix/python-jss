@@ -1,5 +1,7 @@
 import pytest
+
 from jss.distribution_points import DistributionPoints
+
 
 class TestDistributionPoints(object):
 

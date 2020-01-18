@@ -1,8 +1,10 @@
-import pytest
 import os.path
+from xml.etree import ElementTree
+
+import pytest
+
 import jss
 from jss import JSS, QuerySet
-from xml.etree import ElementTree
 from jss.exceptions import GetError
 
 

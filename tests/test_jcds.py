@@ -1,10 +1,12 @@
-import pytest
-import re
 import os
+import re
 import urllib
-from jss.jamf_software_server import JSS
+
+import pytest
+
 import jss
 from jss.distribution_point import JCDS
+from jss.jamf_software_server import JSS
 
 try:
     # Python 2.6-2.7

@@ -1,6 +1,8 @@
-import pytest
-from jss import Policy, JSS, Package, PostError
 from xml.etree import ElementTree
+
+import pytest
+
+from jss import JSS, Package, Policy, PostError
 
 
 @pytest.fixture
@@ -27,4 +29,3 @@ def package(j):  # type: (JSS) -> Package
     yield pkg
 
     pkg.delete()
-

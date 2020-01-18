@@ -17,7 +17,7 @@
 
 Classes representing JSS database objects and their UAPI endpoints
 """
-from .uapiobject import UAPIObject, UAPIContainer
+from .uapiobject import UAPIContainer, UAPIObject
 
 __all__ = 'AdvancedMobileDeviceSearch', 'AlertNotification', 'Building', 'Cache', 'Category', 'ClientCheckIn', \
           'Department', 'DeviceEnrollment', 'Ebook', 'Engage', 'EnrollmentHistory', 'EnrollmentSetting', \

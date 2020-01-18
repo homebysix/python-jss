@@ -41,14 +41,16 @@ To work with plist data in strings, you can use readPlistFromString()
 and writePlistToString().
 """
 
+# pylint: enable=E0611
 # PyLint cannot properly find names inside Cocoa libraries, so issues bogus
 # No name 'Foo' in module 'Bar' warnings. Disable them.
 # pylint: disable=E0611
-from Foundation import NSData
-from Foundation import NSPropertyListSerialization
-from Foundation import NSPropertyListMutableContainers
-from Foundation import NSPropertyListXMLFormat_v1_0
-# pylint: enable=E0611
+from Foundation import (
+    NSData,
+    NSPropertyListMutableContainers,
+    NSPropertyListSerialization,
+    NSPropertyListXMLFormat_v1_0,
+)
 
 # Disable PyLint complaining about 'invalid' camelCase names
 # pylint: disable=C0103

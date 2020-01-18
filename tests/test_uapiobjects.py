@@ -1,5 +1,7 @@
 import pytest
+
 from jss import JSS, uapiobjects
+
 try:
     from UserDict import UserDict  # Python 2.X
 except ImportError:

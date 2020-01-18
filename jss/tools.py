@@ -20,14 +20,15 @@ Helper functions for python-jss.
 
 
 import copy
-from functools import wraps
 import os
 import re
+from functools import wraps
+from xml.etree import ElementTree
+
 try:
     from urllib import quote  # Python 2.X
 except ImportError:
     from urllib.parse import quote  # Python 3+
-from xml.etree import ElementTree
 
 
 PKG_TYPES = {".PKG", ".DMG", ".ZIP"}

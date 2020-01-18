@@ -20,15 +20,17 @@ result of all queries in python-jss.
 """
 
 
+import datetime
+import os
 from collections import defaultdict
+
+from .jssobject import DATE_FMT, Identity
+
 try:
     import cPickle  # Python 2.X
 except ImportError:
     import _pickle as cPickle  # Python 3+
-import datetime
-import os
 
-from .jssobject import DATE_FMT, Identity
 
 
 STR_FMT = "{0:>{1}} | {2:>{3}} | {4:>{5}}"

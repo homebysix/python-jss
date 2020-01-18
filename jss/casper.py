@@ -22,6 +22,10 @@ removed. Do not rely on its continued existence!
 """
 from __future__ import unicode_literals
 
+from xml.etree import ElementTree
+
+from .pretty_element import PrettyElement
+
 try:
     # Python 2
     from __builtin__ import str as text
@@ -39,9 +43,7 @@ except ImportError:
     from urllib import urlencode
     from urllib2 import urlopen, Request, HTTPError
 
-from xml.etree import ElementTree
 
-from .pretty_element import PrettyElement
 
 
 class Casper(ElementTree.Element):
@@ -82,4 +84,3 @@ class Casper(ElementTree.Element):
         # Remove previous data, if any, and then add in response's XML.
         self.clear()
         self.extend(response_xml)
-

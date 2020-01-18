@@ -1,8 +1,12 @@
 
 from __future__ import print_function
-import pytest
-import jss
+
 from xml.etree import ElementTree
+
+import pytest
+
+import jss
+
 
 class TestObjectsPolicies(object):
     """Test Policy Object Methods"""
@@ -19,4 +23,3 @@ class TestObjectsPolicies(object):
 
     def test_add_script(self, policy):  # type: (jss.Policy) -> None
         policy.add_script("Script Name")
-

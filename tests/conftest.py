@@ -1,13 +1,14 @@
-import pytest
-import plistlib
 import os
-from jss import JSSPrefs, JSS
-from xml.etree import ElementTree
+import plistlib
 from subprocess import call
-import boto
-from boto.s3.connection import S3Connection
-from boto.s3.bucket import Bucket
+from xml.etree import ElementTree
 
+import boto
+import pytest
+from boto.s3.bucket import Bucket
+from boto.s3.connection import S3Connection
+
+from jss import JSS, JSSPrefs
 
 JSS_PREFS = {
     'jss_url': 'https://localhost:8444',

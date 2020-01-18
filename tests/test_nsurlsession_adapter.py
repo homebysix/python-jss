@@ -1,17 +1,20 @@
 from __future__ import print_function
 
-import pytest
 import sys
-import requests
 from xml.etree import ElementTree
+
+import pytest
+import requests
+
+from jss import JSS, QuerySet
+from jss.exceptions import GetError
+
 try:
     from jss.nsurlsession_adapter import NSURLSessionAdapter, NSURLCredentialAuth
     from Foundation import NSURLCredential, NSURLCredentialPersistenceNone
 except ImportError:
     pass
 
-from jss import JSS, QuerySet
-from jss.exceptions import GetError
 
 
 

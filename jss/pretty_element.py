@@ -31,7 +31,6 @@ from xml.etree import ElementTree
 
 from jss import tools
 
-
 _DUNDER_PATTERN = re.compile(r'__[a-zA-Z]+__')
 _RESERVED_METHODS = ('cached',)
 
@@ -98,4 +97,3 @@ class PrettyElement(Element):
     def _convert(self, item):
         """If item is not a PrettyElement, make it one"""
         return item if isinstance(item, PrettyElement) else PrettyElement(item)
-

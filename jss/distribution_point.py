@@ -19,20 +19,23 @@ Classes representing the various types of file storage available to
 the JAMF Pro Server.
 """
 
-from __future__ import division
-from __future__ import print_function
+from __future__ import division, print_function
 
+import io
+import math
+import multiprocessing
 import os
 import re
 import shutil
 import socket
 import subprocess
-import io
-import math
-import multiprocessing
 import threading
+
 import requests
 
+from . import abstract, casper
+from .exceptions import JSSError
+from .tools import is_linux, is_osx, is_package
 
 try:
     # Python 2.6-2.7
@@ -52,9 +55,6 @@ except ImportError:
     from urllib import urlencode, unquote, quote
     from urllib2 import urlopen, Request, HTTPError
 
-from . import casper
-from . import abstract
-from .exceptions import JSSError
 try:
     from .contrib.mount_shares_better import mount_share
 except ImportError:
@@ -62,7 +62,6 @@ except ImportError:
     # chances are good user has not set up PyObjC, so fall back to
     # subprocess to mount. (See mount methods).
     mount_share = None
-from .tools import (is_osx, is_linux, is_package)
 
 try:
     import boto.s3

@@ -1,7 +1,7 @@
 import pytest
 
-from jss.curl_adapter import CurlAdapter
 from jss import JSS
+from jss.curl_adapter import CurlAdapter
 
 
 @pytest.fixture
@@ -53,4 +53,3 @@ class TestCurlAdapter(object):
         
         accounts = curl_jss.Account()
         assert accounts is not None
-

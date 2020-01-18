@@ -34,14 +34,15 @@ JSS object beginning with python-jss 2.0.0.
 
 
 import copy
-import subprocess
 import logging
+import subprocess
+
+from .exceptions import JSSError, SSLVerifyError
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
-from .exceptions import JSSError, SSLVerifyError
 
 CURL_RETURNCODE = {
     1: 'Unsupported protocol. This build of curl has no support for this protocol.',

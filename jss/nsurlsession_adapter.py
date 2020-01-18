@@ -5,24 +5,43 @@ Requests API transport that uses NSURLSession and friends via PyObjC 2.1 that sh
 Much of this code was copied, rewritten, or inspired by gurl.py from the munki project.
 Thanks to Greg Neagle and frogor, amongst many other contributors.
 """
+# define a helper function for block callbacks
+import ctypes
+import io
 import logging
 import os
-import io
+
 from requests.adapters import BaseAdapter
-from requests.models import Response, PreparedRequest, Request
-from requests.structures import CaseInsensitiveDict
-from requests.utils import get_encoding_from_headers
 from requests.auth import AuthBase, HTTPBasicAuth
 from requests.cookies import RequestsCookieJar
 from requests.exceptions import SSLError
-# from cookielib import Cookie
+from requests.models import PreparedRequest, Request, Response
+from requests.structures import CaseInsensitiveDict
+from requests.utils import get_encoding_from_headers
 
 import objc
-from Foundation import NSObject, NSMutableURLRequest, NSURL, NSURLRequestUseProtocolCachePolicy, \
-    NSURLRequestReloadIgnoringLocalCacheData, NSURLRequestReturnCacheDataElseLoad, \
-    NSURLSessionConfiguration, NSURLSession, NSOperationQueue, NSURLCredential, \
-    NSURLCredentialPersistenceNone, NSRunLoop, NSDate, NSURLResponseUnknownLength, \
-    NSURLAuthenticationMethodServerTrust, NSMutableData, NSBundle
+from Foundation import (
+    NSURL,
+    NSBundle,
+    NSDate,
+    NSMutableData,
+    NSMutableURLRequest,
+    NSObject,
+    NSOperationQueue,
+    NSRunLoop,
+    NSURLAuthenticationMethodServerTrust,
+    NSURLCredential,
+    NSURLCredentialPersistenceNone,
+    NSURLRequestReloadIgnoringLocalCacheData,
+    NSURLRequestReturnCacheDataElseLoad,
+    NSURLRequestUseProtocolCachePolicy,
+    NSURLResponseUnknownLength,
+    NSURLSession,
+    NSURLSessionConfiguration,
+)
+
+# from cookielib import Cookie
+
 
 
 # These headers are reserved to the NSURLSession and should not be set by
@@ -103,9 +122,6 @@ ssl_error_codes = {
     -9848: u'Configuration error',
     -9849: u'Unexpected (skipped) record in DTLS'}
 
-# define a helper function for block callbacks
-import ctypes
-import objc
 _objc_so = ctypes.cdll.LoadLibrary(
     os.path.join(objc.__path__[0], '_objc.so'))
 PyObjCMethodSignature_WithMetaData = (

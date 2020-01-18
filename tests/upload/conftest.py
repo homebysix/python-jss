@@ -5,4 +5,3 @@ import pytest
 @pytest.fixture
 def p12_keystore():  # () -> File
     pass
-

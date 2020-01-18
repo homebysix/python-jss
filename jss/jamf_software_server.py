@@ -20,35 +20,37 @@ as JSSObjects.
 """
 from __future__ import print_function
 
+import gzip
+import json
+import os
+import platform
+import re
+from xml.etree import ElementTree
+
+import requests
+
+from . import jssobjects, uapiobjects
+from .auth import UAPIAuth
+# from jss.nsurlsession_adapter import NSURLSessionAdapter
+from .curl_adapter import CurlAdapter
+from .distribution_points import DistributionPoints
+from .exceptions import DeleteError, GetError, PostError, PutError
+from .jssobject import JSSObject
+from .queryset import QuerySet
+from .tools import error_handler, quote_and_encode
+
 try:
     import cPickle  # Python 2.X
 except ImportError:
     import _pickle as cPickle  # Python 3+
 
 
-import gzip
-import os
-import platform
-import re
-import json
-from xml.etree import ElementTree
-import requests
 
 try:
     from UserDict import UserDict  # Python 2.X
 except ImportError:
     from collections import UserDict  # Python 3.3+
 
-# from jss.nsurlsession_adapter import NSURLSessionAdapter
-from .curl_adapter import CurlAdapter
-from .auth import UAPIAuth
-from .distribution_points import DistributionPoints
-from .exceptions import GetError, PutError, PostError, DeleteError
-from .jssobject import JSSObject
-from . import jssobjects
-from . import uapiobjects
-from .queryset import QuerySet
-from .tools import error_handler, quote_and_encode
 
 
 # Pylint wants us to store our many attributes in a dictionary.

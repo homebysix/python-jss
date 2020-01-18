@@ -26,7 +26,6 @@ from xml.etree import ElementTree
 from .exceptions import MethodNotAllowedError, PostError
 from .tools import error_handler
 
-
 __all__ = ('CommandFlush', 'FileUpload', 'LogFlush')
 
 

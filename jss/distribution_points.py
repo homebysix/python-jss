@@ -23,9 +23,16 @@ CDPs, and JDSs.
 import os
 
 from .distribution_point import (
-    AFPDistributionPoint, SMBDistributionPoint, JDS, CDP, LocalRepository, AWS, JCDS)
+    AWS,
+    CDP,
+    JCDS,
+    JDS,
+    AFPDistributionPoint,
+    LocalRepository,
+    SMBDistributionPoint,
+)
 from .exceptions import JSSError
-from .tools import (is_osx, is_linux, is_package)
+from .tools import is_linux, is_osx, is_package
 
 
 class DistributionPoints(object):
@@ -315,5 +322,3 @@ class DistributionPoints(object):
             index += 1
 
         return "\n".join(output)
-
-

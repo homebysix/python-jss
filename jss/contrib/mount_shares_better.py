@@ -11,15 +11,16 @@ Mount file shares on OS X.
 """
 
 
-from distutils.version import StrictVersion
 import subprocess
+from distutils.version import StrictVersion
 
+import Foundation  # pylint: disable=unused-import
 # PyLint cannot properly find names inside Cocoa libraries, so issues bogus
 # No name 'Foo' in module 'Bar' warnings. Disable them.
 # pylint: disable=no-name-in-module
 from CoreFoundation import CFURLCreateWithString
-import Foundation  # pylint: disable=unused-import
-from objc import (initFrameworkWrapper, pathForFramework, loadBundleFunctions)
+from objc import initFrameworkWrapper, loadBundleFunctions, pathForFramework
+
 # pylint: enable=no-name-in-module
 
 

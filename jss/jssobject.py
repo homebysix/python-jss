@@ -18,24 +18,27 @@
 Base Classes representing JSS database objects and their API endpoints
 """
 from __future__ import print_function
-from six import string_types
 
 import collections
 import copy
+import datetime as dt
+import gzip
+import os
+from xml.etree import ElementTree
+
+from six import string_types
+
+from jss import tools
+
+from .exceptions import JSSError, MethodNotAllowedError, PostError, PutError
+from .pretty_element import PrettyElement
 
 try:
     import cPickle  # Python 2.X
 except ImportError:
     import _pickle as cPickle  # Python 3+
 
-import datetime as dt
-import gzip
-import os
-from xml.etree import ElementTree
 
-from .exceptions import JSSError, MethodNotAllowedError, PutError, PostError
-from .pretty_element import PrettyElement
-from jss import tools
 
 
 

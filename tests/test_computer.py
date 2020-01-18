@@ -1,5 +1,7 @@
-import pytest
 from xml.etree import ElementTree
+
+import pytest
+
 import jss
 
 

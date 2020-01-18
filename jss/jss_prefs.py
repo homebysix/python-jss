@@ -23,13 +23,14 @@ from __future__ import print_function
 
 import getpass
 import os
-import readline   # pylint: disable=unused-import
+import readline  # pylint: disable=unused-import
 import subprocess
 from xml.parsers.expat import ExpatError
 
-from .exceptions import JSSError, GetError
+from .exceptions import GetError, JSSError
 from .jamf_software_server import JSS
-from .tools import is_osx, is_linux, loop_until_valid_response
+from .tools import is_linux, is_osx, loop_until_valid_response
+
 try:
     from .contrib import FoundationPlist as plistlib
 except ImportError:

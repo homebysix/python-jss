@@ -18,19 +18,22 @@
 Base Classes representing JSS database objects and their UAPI endpoints
 """
 from __future__ import print_function
-from six import string_types
 
-import os
 import datetime as dt
 import json
+import os
+
+from six import string_types
 
 from jss import tools
+
+from .exceptions import JSSError, MethodNotAllowedError, PostError, PutError
+
 try:
     from UserDict import UserDict  # Python 2.X
 except ImportError:
     from collections import UserDict  # Python 3.3+
 
-from .exceptions import JSSError, MethodNotAllowedError, PutError, PostError
 
 
 DATE_FMT = "%Y/%m/%d-%H:%M:%S.%f"

@@ -1,7 +1,9 @@
+import os.path
+
 import pytest
+
 # import __builtin__
 from jss import JSSPrefs, tools
-import os.path
 
 
 def mock_raw_input(prompt):
@@ -38,5 +40,3 @@ class TestJSSPrefs(object):
     @pytest.mark.skip(reason='todo')
     def test_url_required(self):
         pass
-
-    

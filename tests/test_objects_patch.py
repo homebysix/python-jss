@@ -1,6 +1,8 @@
-import pytest
-import jss
 from xml.etree import ElementTree
+
+import pytest
+
+import jss
 
 
 class TestObjectsPatch(object):

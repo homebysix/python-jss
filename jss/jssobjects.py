@@ -26,11 +26,10 @@ from xml.sax.saxutils import escape
 
 import requests
 
-from .queryset import QuerySet
 from .exceptions import GetError
 from .jssobject import Container, Group, JSSObject
+from .queryset import QuerySet
 from .tools import error_handler
-
 
 __all__ = (
     'Account', 'AccountGroup', 'ActivationCode', 'AdvancedComputerSearch',

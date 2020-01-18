@@ -23,9 +23,26 @@ curl replacement using NSURLConnection and friends
 """
 
 import os
-from urlparse import urlparse
 from urllib import urlencode
+from urlparse import urlparse
 
+from Foundation import (
+    NSURL,
+    NSBundle,
+    NSDate,
+    NSLog,
+    NSMutableURLRequest,
+    NSObject,
+    NSPropertyListMutableContainersAndLeaves,
+    NSPropertyListSerialization,
+    NSPropertyListXMLFormat_v1_0,
+    NSRunLoop,
+    NSURLConnection,
+    NSURLCredential,
+    NSURLCredentialPersistenceNone,
+    NSURLRequestReloadIgnoringLocalCacheData,
+    NSURLResponseUnknownLength,
+)
 # builtin super doesn't work with Cocoa classes in recent PyObjC releases.
 from objc import super
 
@@ -34,16 +51,6 @@ from objc import super
 # pylint: disable=E0611
 
 
-from Foundation import (NSBundle, NSRunLoop, NSDate,
-                        NSObject, NSURL, NSURLConnection,
-                        NSMutableURLRequest,
-                        NSURLRequestReloadIgnoringLocalCacheData,
-                        NSURLResponseUnknownLength,
-                        NSLog,
-                        NSURLCredential, NSURLCredentialPersistenceNone,
-                        NSPropertyListSerialization,
-                        NSPropertyListMutableContainersAndLeaves,
-                        NSPropertyListXMLFormat_v1_0)
 
 try:
     from Foundation import NSURLSession, NSURLSessionConfiguration, NSUTF8StringEncoding, NSString, NSMutableData
