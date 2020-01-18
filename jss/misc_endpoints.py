@@ -21,12 +21,18 @@ from __future__ import print_function
 
 import mimetypes
 import os
+import sys
 from xml.etree import ElementTree
 
 from .exceptions import MethodNotAllowedError, PostError
 from .tools import error_handler
 
 __all__ = ('CommandFlush', 'FileUpload', 'LogFlush')
+
+# Map string types for Python 3 backwards compatibility.
+if sys.version_info.major == 3:
+    unicode = str
+    basestring = str
 
 
 # pylint: disable=missing-docstring

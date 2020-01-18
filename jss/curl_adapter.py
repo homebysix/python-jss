@@ -36,6 +36,7 @@ JSS object beginning with python-jss 2.0.0.
 import copy
 import logging
 import subprocess
+import sys
 
 from .exceptions import JSSError, SSLVerifyError
 
@@ -64,6 +65,11 @@ CURL_RETURNCODE = {
     47: 'Too many redirects. When following redirects, curl hit the maximum amount.',
     60: 'Peer certificate cannot be authenticated with known CA certificates.'
 }
+
+# Map string types for Python 3 backwards compatibility.
+if sys.version_info.major == 3:
+    unicode = str
+    basestring = str
 
 
 class CurlAdapter(object):

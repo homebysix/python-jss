@@ -35,15 +35,6 @@ from .exceptions import JSSError
 from .tools import is_linux, is_osx, is_package
 
 
-# Remap basestring in Python 3
-# Credit: https://github.com/munki/munki/blob/ff6248daafa527def0fd109e0c72c69ca179702c
-# /code/client/munkilib/wrappers.py#L121-L125
-try:
-    _ = basestring
-except NameError:
-    basestring = str  # pylint: disable=W0622
-
-
 class DistributionPoints(object):
     """Manage multiple DistributionPoint objects.
 
@@ -145,7 +136,7 @@ class DistributionPoints(object):
                 username = dp_object.findtext("read_write_username")
                 password = repo.get("password")
                 # Make very sure this password is unicode.
-                if isinstance(password, basestring):
+                if isinstance(password, str):
                     password = password.encode("utf-8")
 
                 if is_osx():
@@ -190,7 +181,7 @@ class DistributionPoints(object):
         username = repo["username"]
         password = repo["password"]
         # Make very sure this password is unicode.
-        if isinstance(password, basestring):
+        if isinstance(password, str):
             password = password.encode("utf-8")
 
         if is_osx():
