@@ -71,7 +71,7 @@ class TestNSURLSessionAdapter(object):
             verify=False)
         assert response is not None
         assert response.status_code == 401
-        assert response.content is not None
+        assert response.content.decode() is not None
 
     def test_post_json(self, session, jss_prefs_dict):
         # type: (requests.Session, dict) -> None
@@ -94,9 +94,9 @@ class TestNSURLSessionAdapter(object):
             verify=False)
         assert response is not None
         assert response.status_code == 200
-        assert response.content is not None
+        assert response.content.decode() is not None
 
-        print(response.content)
+        print(response.content.decode())
 
     def test_post_xml(self, session, jss_prefs_dict, etree_building):
         # type: (requests.Session, dict, ElementTree.Element) -> None
@@ -107,9 +107,9 @@ class TestNSURLSessionAdapter(object):
             verify=False)
         assert response is not None
         assert response.status_code == 201
-        assert response.content is not None
+        assert response.content.decode() is not None
 
-        print(response.content)
+        print(response.content.decode())
 
     def test_delete_xml(self, session, jss_prefs_dict, etree_building):
         # type: (requests.Session, dict, ElementTree.Element) -> None
@@ -119,9 +119,9 @@ class TestNSURLSessionAdapter(object):
             verify=False)
         assert response is not None
         assert response.status_code == 200
-        assert response.content is not None
+        assert response.content.decode() is not None
 
-        print(response.content)
+        print(response.content.decode())
 
     def test_get_jss(self, ns_jss):
         # type: (JSS) -> None

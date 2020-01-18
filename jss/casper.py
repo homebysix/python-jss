@@ -79,7 +79,7 @@ class Casper(ElementTree.Element):
         """Request an updated set of data from casper.jxml."""
         response = self.jss.session.post(
             self.url, data=self.auth)
-        response_xml = ElementTree.fromstring(response.content)
+        response_xml = ElementTree.fromstring(response.content.decode())
 
         # Remove previous data, if any, and then add in response's XML.
         self.clear()

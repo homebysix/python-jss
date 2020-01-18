@@ -24,8 +24,8 @@ class TestJCDS(object):
         from <div class='chunked-uploader' data-base-url>"""
         response = cloud_j.scrape('legacy/packages.html?id=-1&o=c')
         re_data_base_url = re.compile('data-base-url="([^"]*)"')
-        # print(response.content)
-        matches = re_data_base_url.search(response.content)
+        # print(response.content.decode())
+        matches = re_data_base_url.search(response.content.decode())
         print(matches.group(1))
         h = HTMLParser()
 
@@ -36,8 +36,8 @@ class TestJCDS(object):
         from <div class='chunked-uploader' data-upload-token>"""
         response = cloud_j.scrape('legacy/packages.html?id=-1&o=c')
         re_data_base_url = re.compile('data-upload-token="([^"]*)"')
-        # print(response.content)
-        matches = re_data_base_url.search(response.content)
+        # print(response.content.decode())
+        matches = re_data_base_url.search(response.content.decode())
         print(matches.group(1))
         h = HTMLParser()
 

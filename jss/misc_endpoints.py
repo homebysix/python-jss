@@ -210,7 +210,7 @@ class FileUpload(object):
         if response.status_code == 201:
             if self.jss.verbose:
                 print("POST: Success")
-                print(response.content)
+                print(response.content.decode())
         elif response.status_code >= 400:
             error_handler(PostError, response)
 

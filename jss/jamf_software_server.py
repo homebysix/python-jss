@@ -327,14 +327,14 @@ class JSS(object):
         if 'text/xml' in response.headers['content-type']:
             # ElementTree in python2 only accepts bytes.
             try:
-                xmldata = ElementTree.fromstring(response.content)
+                xmldata = ElementTree.fromstring(response.content.decode())
                 return xmldata
             except ElementTree.ParseError:
-                raise GetError("Error Parsing XML:\n%s" % response.content)
+                raise GetError("Error Parsing XML:\n%s" % response.content.decode())
         elif response.headers['content-type'].startswith('application/json'):
             return response.json()
         else:
-            return response.content
+            return response.content.decode()
 
     def post(self, url_path, data=None):
         # type: (str, Union[ElementTree.Element, dict]) -> str
@@ -379,7 +379,7 @@ class JSS(object):
             error_handler(PostError, response)
 
         if 'text/xml' in response.headers['content-type']:
-            id_ = re.search(r"<id>([0-9]+)</id>", response.content).group(1)
+            id_ = re.search(r"<id>([0-9]+)</id>", response.content.decode()).group(1)
         else:
             return response
 
