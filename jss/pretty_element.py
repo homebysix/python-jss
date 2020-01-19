@@ -40,9 +40,8 @@ _RESERVED_METHODS = ('cached',)
 sys.modules.pop('xml.etree.ElementTree', None)
 sys.modules['_elementtree'] = None
 ElementTree = importlib.import_module('xml.etree.ElementTree')
-Element = ElementTree.Element
 
-class PrettyElement(Element):
+class PrettyElement(ElementTree.Element):
     """Pretty printing element subclass
 
     Element subclasses xml.etree.ElementTree.Element to pretty print.
